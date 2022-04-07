@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Proyecto Final</title>
 </head>
 <body>
     <header></header>
-    <main>
-
+    <main class="main">
+        <section class="main__section">
+            <div class="container">
+                <div class="main__box">
+                    <div class="main__tittle">
+                        <h1>Plazos Fijos</h1>
+                    </div>
+                    <div class="main__content">
+                        <label for="monto" class="label">Cuanto dinero quieres Ingresar?
+                            <br>              
+                            <input type="text" id="monto">
+                        </label>
+                    </div>
+                    <div class="main__content">
+                        <label for="interes" class="label">Que tasa de interes buscas?
+                            <br> 
+                            <input type="text" id="interes" placeholder="2% / 4% / 6%">
+                        </label>
+                    </div>
+                    <div class="main__content">
+                        <label for="meses" class="label">Cuantos Meses planeas depositar tu dinero?
+                            <br>              
+                            <input type="text" id="meses" placeholder="6/12/24 meses">
+                        </label>
+                    </div>
+                    <div class="main__content" id="result"></div>
+                    <div id="main__divBtn">
+                        <button id="btn">Hecho</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <script src="./index.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

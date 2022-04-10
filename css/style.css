@@ -4,12 +4,53 @@
     box-sizing: border-box;
 }
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .6s;
+    padding: 40px 100px;
+}
+
+header.sticky {
+    padding: 15px 100px;
+    background-color: #D5D7DB;
+    opacity: .9;
+}
+
+header .logo {
+    position: relative;
+    font-weight: 700;
+    color: #D5D7DB;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .6s;
+}
+
+header.sticky .logo{
+    color: #011638;
+}
+
 .main {
-    background-color: #DED2CE;
+    background-color: hsl(216, 37%, 11%);
+    padding-top: 2em;
+}
+
+.main__section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .container {
-    min-height: 100vh;
     margin: 0 auto;
     max-width: 1300px;
     width: 100%;
@@ -19,28 +60,146 @@
 }
 
 .main__box {
-    background-color:#D5D7DB;
+    width: 100%;
+    padding: 0 20vh;
+    min-height: 70vh;
+    color: #D5D7DB;
+    background-color: #252d37;
+    border-radius: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 70vh;
-    width: 80%;
-    border: 1px solid #71716F;
-    box-shadow: 2px 7px 10px rgb(0 0 0 / 60%);
-    border-radius: 15px;
 }
 
-.label {
-    font-size: 20px;
-    padding: 1em 0;
+.tittle {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+}
+
+.tittle::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 70px;
+    border-radius: 2px;
+    background-color: #fb7413;
+}
+
+.main__intCards, .main__mesCards {
+    padding-top: 4em;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2em;
+}
+
+.main__intCards div, .main__mesCards div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    transition: .6s;
+}
+
+.main__intCards div:hover, .main__mesCards div:hover, .main__optionCard:hover {
+    transform: scale(1.05);
+    background-color: #fb7413;
+}
+
+.main__intCards div p {
+    margin: 0;
+    padding: 1em 0 ;
+}
+
+.main__mesCards div p {
+    margin: 0;
+    padding: 1em 3em;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.main__mesCards div p::after {
+    content: 'meses';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 70px;
+    bottom: 30%;
+}
+
+.input {
+    width: 300px;
+    outline: none;
+    background-color: #dddfe2;;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    transition: .3s;
+}
+
+.input:hover {
+    background-color: #dddfe2b0;
+}
+
+.input:focus{
+    border: 3px solid #fb7413;
+    background-color: #fff;
 }
 
 .hidden {
     display: none;
 }
 
+.activeInt, .activeMes, .activePlan {
+    transform: scale(1.05);
+    background-color: #fb7413;
+}
+
+.main__optionCards {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 3em;
+}
+
+.main__optionCard {
+    min-height: 270px;
+    min-width: 225px;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    transition: .6s;
+}
+
+.cardBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardBox div p{
+    margin: 0;
+}
+
 button {
     width: 200px;
+    padding: 6px 0;
+    background-color: #fb7413;
+    border-radius: 20px;
+    color: #D5D7DB;
+    transition: .6s;	
+}
+
+button:hover {
+    transform: scale(1.02);
+    background-color: #f58331;
 }

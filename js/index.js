@@ -1,3 +1,7 @@
+document.addEventListener("scroll", function(){
+    let header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0)})
+
 //Simulador de Interes Plazo Fijo
 
 const planes = [
@@ -14,7 +18,7 @@ const planes = [
         "interes" : 6,
     },
     {
-        "meses" : 14,
+        "meses" : 18,
         "interes" : 3,
     },
     {
@@ -22,12 +26,16 @@ const planes = [
         "interes" : 5,
     },
     {
-        "meses" : 12,
+        "meses" : 14,
         "interes" : 3,
     },
     {
         "meses" : 24,
         "interes" : 5,
+    },
+    {
+        "meses" : 30,
+        "interes" : 7,
     }
 ]
 
@@ -39,9 +47,29 @@ let int = 0
  
 let month = 0
 
-let labels = document.querySelectorAll(".container .main__box .main__content") 
+let labels = document.querySelectorAll(".main__content")
 
 console.log(labels)
+
+let intCards = document.querySelector(".main__intCards").querySelectorAll("div");
+console.log(intCards)
+
+intCards.forEach(element => {
+    element.addEventListener("click", function(){
+        intCards.forEach(card=>card.classList.remove("activeInt"))
+        this.classList.add("activeInt")
+    })
+});
+
+let mesCards = document.querySelector(".main__mesCards").querySelectorAll("div");
+console.log(mesCards)
+
+mesCards.forEach(element => {
+    element.addEventListener("click", function(){
+        mesCards.forEach(card=>card.classList.remove("activeMes"))
+        this.classList.add("activeMes")
+    })
+});
 
 function showNextStep(){
     step++
@@ -57,17 +85,34 @@ btn.addEventListener("click", function() {
         showNextStep()
     }
     else if (step == 1) {
-        int = parseFloat(document.getElementById('interes').value)
+        let findInt = document.getElementsByClassName('activeInt');
+        let foundInt = findInt[0].innerText.slice(0, -1);
+        int = parseInt(foundInt)
+        console.log(int)
         showNextStep()
     }
     else if (step == 2) {
-        month = parseFloat(document.getElementById('meses').value)
+        let findMonth = document.getElementsByClassName("activeMes");
+        let foundMonth = findMonth[0].innerText;
+        month = parseFloat(foundMonth)
+        console.log(month)
         calculate()
+        let planCards = document.querySelectorAll(".main__optionCard");
+        console.log(planCards)
+        planCards.forEach(element => {
+        element.addEventListener("click", function(){
+        planCards.forEach(card=>card.classList.remove("activePlan"))
+        this.classList.add("activePlan")
+
+            })
+        });
         showNextStep()
-        let lastStep = document.getElementById("main__divBtn")
-        lastStep.className = "hidden"
     }
     else if (step == 3) {
+        let lastStep = document.getElementById("main__divBtn")
+        lastStep.className = "hidden"
+        let selectedPlan = document.getElementsByClassName("activePlan")
+        console.log(calculate())
 
     }
 })
@@ -113,6 +158,29 @@ function calculate(){
         el.saldos = s
     })
 
+    let planesContenedor = document.getElementById("opcionesPlan")
+    let main__optionCards = document.createElement("div")
+    main__optionCards.className = "main__optionCards"
+    planesContenedor.appendChild(main__optionCards);
+
+    for ([index,planesElegidos] of planElegido.entries()) {
+        let opcionPlan = document.createElement("div")
+        opcionPlan.className= "main__optionCard"
+  
+        opcionPlan.innerHTML = `<h3>Plan Nro ${index + 1}</h3>
+                                <div class="cardBox">
+                                    <div>
+                                        <p>${planesElegidos.meses}</p>
+                                        <p>meses</p>
+                                    </div>
+                                    <div>
+                                        <p>Interes</p>
+                                        <p>${planesElegidos.interes}%</p>
+                                    </div>
+                                </div>`
+        main__optionCards.appendChild(opcionPlan);
+    }
+
     //Aca se elije  automaticamente el plan con mas ganancia
 
     planElegido.sort((a,b) => b.ganacia - a.ganacia)
@@ -130,4 +198,5 @@ function calculate(){
     let mensaje = document.createElement("div")
     mensaje.innerHTML = `<p>Su saldo Final es de $ ${planElegido[0].saldos.slice(-1)[0]} y Usted Genero $ ${planElegido[0].saldos.slice(-1)[0] - dinero.toFixed(2)} de ganancia</p>`
     finalMsg.appendChild(mensaje)
+    return planElegido
 }

@@ -4,39 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Proyecto Final</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <a href="#" class="logo"><h1>Stonks</h1></a>
+    </header>
     <main class="main">
         <section class="main__section">
             <div class="container">
                 <div class="main__box">
                     <div class="main__tittle">
-                        <h1>Plazos Fijos</h1>
+                        <h2 class="tittle">Crea tu Plan</h2>
                     </div>
                     <div class="main__content">
-                        <label for="monto" class="label">Cuanto dinero quieres Ingresar?
+                        <label for="monto" class="label">
                             <br>              
-                            <input type="text" id="monto">
+                            <input type="text" id="monto" class="input" placeholder="Cuanto dinero quieres Ingresar?">
                         </label>
                     </div>
                     <div class="main__content">
-                        <label for="interes" class="label">Que tasa de interes buscas?
-                            <br> 
-                            <input type="text" id="interes" placeholder="2% / 4% / 6%">
-                        </label>
+                        <h2>Que tasa de Interes buscas ?</h2>
+                        <div class="main__intCards">
+                            <div>
+                                <p>2%</p>
+                            </div>
+                            <div>
+                                <p>3%</p>
+                            </div>
+                            <div>
+                                <p>4%</p>
+                            </div>
+                            <div>
+                                <p>5%</p>
+                            </div>
+                            <div>
+                                <p>6%</p>
+                            </div>
+                            <div>
+                                <p>7%</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="main__content">
-                        <label for="meses" class="label">Cuantos Meses planeas depositar tu dinero?
-                            <br>              
-                            <input type="text" id="meses" placeholder="6/12/24 meses">
-                        </label>
+                        <div class="main__mesCards">
+                            <div>
+                                <p>12</p>
+                            </div>
+                            <div>
+                                <p>14</p>
+                            </div>
+                            <div>
+                                <p>18</p>
+                            </div>
+                            <div>
+                                <p>20</p>
+                            </div>
+                            <div>
+                                <p>24</p>
+                            </div>
+                            <div>
+                                <p>30</p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="main__content" id="opcionesPlan"></div>
                     <div class="main__content" id="result"></div>
                     <div id="main__divBtn">
-                        <button id="btn">Hecho</button>
+                        <button id="btn">Listo</button>
                     </div>
                 </div>
             </div>

@@ -49,6 +49,10 @@ let month = 0
 
 let labels = document.querySelectorAll(".main__content")
 
+let selectedMonth
+
+let selectedInt
+
 console.log(labels)
 
 let intCards = document.querySelector(".main__intCards").querySelectorAll("div");
@@ -106,13 +110,18 @@ btn.addEventListener("click", function() {
 
             })
         });
+        findFinalMonth = document.querySelector(".activePlan .monthData")
+        selectedMonth = findFinalMonth.innerText
+        findFinalInt = document.querySelector(".activePlan .intData")
+        selectedInt = findFinalInt.innerText.slice(0, -1);
         showNextStep()
     }
     else if (step == 3) {
+
+        console.log(selectedMonth)
+        console.log(selectedInt)
         let lastStep = document.getElementById("main__divBtn")
         lastStep.className = "hidden"
-        let selectedPlan = document.getElementsByClassName("activePlan")
-        console.log(calculate())
 
     }
 })
@@ -170,12 +179,12 @@ function calculate(){
         opcionPlan.innerHTML = `<h3>Plan Nro ${index + 1}</h3>
                                 <div class="cardBox">
                                     <div>
-                                        <p>${planesElegidos.meses}</p>
+                                        <p class="monthData">${planesElegidos.meses}</p>
                                         <p>meses</p>
                                     </div>
                                     <div>
                                         <p>Interes</p>
-                                        <p>${planesElegidos.interes}%</p>
+                                        <p class="intData">${planesElegidos.interes}%</p>
                                     </div>
                                 </div>`
         main__optionCards.appendChild(opcionPlan);

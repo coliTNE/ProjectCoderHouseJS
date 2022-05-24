@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -20,6 +24,7 @@ header.sticky {
     padding: 15px 100px;
     background-color: #D5D7DB;
     opacity: .9;
+    z-index: 999;
 }
 
 header .logo {
@@ -33,7 +38,7 @@ header .logo {
     transition: .6s;
 }
 
-header.sticky .logo{
+header.sticky .logo {
     color: #011638;
 }
 
@@ -60,9 +65,11 @@ header.sticky .logo{
 }
 
 .main__box {
+    position: relative;
     width: 100%;
+    margin-top: 10vh;
     padding: 0 20vh;
-    min-height: 70vh;
+    min-height: 80vh;
     color: #D5D7DB;
     background-color: #252d37;
     border-radius: 50px;
@@ -71,6 +78,15 @@ header.sticky .logo{
     align-items: center;
     flex-direction: column;
     text-align: center;
+}
+
+#reset {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: .5rem 1rem;
+    margin: 2em ;
+    width: unset;
 }
 
 .tittle {
@@ -91,14 +107,16 @@ header.sticky .logo{
     background-color: #fb7413;
 }
 
-.main__intCards, .main__mesCards {
+.main__tarjetasInteres,
+.main__tarjetasMeses {
     padding-top: 4em;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2em;
 }
 
-.main__intCards div, .main__mesCards div {
+.main__tarjetasInteres div,
+.main__tarjetasMeses div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,24 +126,26 @@ header.sticky .logo{
     transition: .6s;
 }
 
-.main__intCards div:hover, .main__mesCards div:hover, .main__optionCard:hover {
+.main__tarjetasInteres div:hover,
+.main__tarjetasMeses div:hover,
+.main__optionCard:hover {
     transform: scale(1.05);
     background-color: #fb7413;
 }
 
-.main__intCards div p {
+.main__tarjetasInteres div p {
     margin: 0;
-    padding: 1em 0 ;
+    padding: 1em 0;
 }
 
-.main__mesCards div p {
+.main__tarjetasMeses div p {
     margin: 0;
     padding: 1em 3em;
     position: relative;
     margin-bottom: 10px;
 }
 
-.main__mesCards div p::after {
+.main__tarjetasMeses div p::after {
     content: 'meses';
     position: absolute;
     left: 50%;
@@ -138,7 +158,8 @@ header.sticky .logo{
 .input {
     width: 300px;
     outline: none;
-    background-color: #dddfe2;;
+    background-color: #dddfe2;
+    ;
     padding: 0.5rem 1rem;
     font-size: 1.1rem;
     transition: .3s;
@@ -148,7 +169,7 @@ header.sticky .logo{
     background-color: #dddfe2b0;
 }
 
-.input:focus{
+.input:focus {
     border: 3px solid #fb7413;
     background-color: #fff;
 }
@@ -157,7 +178,9 @@ header.sticky .logo{
     display: none;
 }
 
-.activeInt, .activeMes, .activePlan {
+.activeInt,
+.activeMes,
+.activePlan {
     transform: scale(1.05);
     background-color: #fb7413;
 }
@@ -186,7 +209,7 @@ header.sticky .logo{
     justify-content: space-between;
 }
 
-.cardBox div p{
+.cardBox div p {
     margin: 0;
 }
 
@@ -196,10 +219,31 @@ button {
     background-color: #fb7413;
     border-radius: 20px;
     color: #D5D7DB;
-    transition: .6s;	
+    transition: .6s;
 }
 
 button:hover {
     transform: scale(1.02);
     background-color: #f58331;
 }
+
+#result {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.result__img {
+    width: 65%;
+    margin: 2em 0;
+    border-radius: 15px;
+    box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.6);
+}
+
+.usuario {
+    font-size: 1.4em;
+}
+
+.main__mensajeFinal {
+    margin-top: 1em;
+}
+

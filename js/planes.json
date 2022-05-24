@@ -1,0 +1,35 @@
+[
+    {
+        "meses" : 12,
+        "interes" : 2
+    },
+    {
+        "meses" : 18,
+        "interes" : 4
+    },
+    {
+        "meses" : 24,
+        "interes" : 6
+    },
+    {
+        "meses" : 18,
+        "interes" : 3
+    },
+    {
+        "meses" : 20,
+        "interes" : 5
+    },
+    {
+        "meses" : 14,
+        "interes" : 3
+    },
+    {
+        "meses" : 24,
+        "interes" : 5
+    },
+    {
+        "meses" : 30,
+        "interes" : 7
+    }
+]
+

@@ -3,7 +3,7 @@
 
 let planes = []
 
-fetch('http://localhost:5501/js/planes.json')
+fetch('/planes.json')
     .then((response) => response.json())
     .then((json) => planes = planes.concat(json))
 
